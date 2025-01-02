@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading List</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #325fdb;
+        }
+
+        h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 2rem 0 1rem;
+            color: #333;
+            text-align: left;
+        }
+
+        .reading-section {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+
+        .desktop-nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            text-align: right;
+        }
+
+        .desktop-nav a {
+            font-size: 1rem;
+            color: black;
+            margin-bottom: 0.5rem;
+        }
+
+        .desktop-nav a:hover {
+            background-color: #325fdb;
+            color: white;
+            padding: 0.25rem;
+            border-radius: 5px;
+        }
+
+        .desktop-nav h2 {
+            margin-bottom: 1rem;
+        }
+
+        .desktop-nav .socials a {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: white;
+            width: 250px;
+            height: 100%;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav h2 {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .mobile-nav a {
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .close-nav {
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .fixed-links {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .fixed-links a {
+                margin-right: 1rem;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="fixed-links">
+            <a href="index.html">About</a>
+            <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span>&#9786;</span>
+        </div>
+
+        <nav class="desktop-nav">
+            <h2>WAYFINDING:</h2>
+            <a href="index.html">About</a>
+            <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+            <a href="reading.html">Reading</a>
+            <a href="world.html">World</a>
+            <a href="feed-everyone.html">Feed Everyone</a>
+
+            <div class="socials">
+                <h2>LINKS:</h2>
+                <a href="https://isabellagrandic.substack.com/" target="_blank">Substack</a>
+                <a href="https://twitter.com/izzygrandic" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/in/isabellagrandic/" target="_blank">LinkedIn</a>
+                <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank">Goodreads</a>
+                <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Food Reviews</a>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <span class="close-nav" id="closeNav">&times;</span>
+        <h2>WAYFINDING:</h2>
+        <a href="index.html">About</a>
+        <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+        <a href="reading.html">Reading</a>
+        <a href="world.html">World</a>
+        <a href="feed-everyone.html">Feed Everyone</a>
+
+        <h2>LINKS:</h2>
+        <a href="https://isabellagrandic.substack.com/" target="_blank">Substack</a>
+        <a href="https://twitter.com/izzygrandic" target="_blank">Twitter</a>
+        <a href="https://www.linkedin.com/in/isabellagrandic/" target="_blank">LinkedIn</a>
+        <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank">Goodreads</a>
+        <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Food Reviews</a>
+    </div>
+
+    <main>
+        <div class="reading-section">
+            <h1>Isabella's Favourites Reading List</h1>
+            <p style="text-align: center;">
+                Check out my full collection on <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank" style="color: #325fdb;">Goodreads</a>.
+            </p>
+            <div class="section-title">🌏 Understanding the World</div>
+            <ul>
+                <li>Sapiens</li>
+                <li>Homo Deus</li>
+                <li>Dictator’s Handbook</li>
+                <li>History of the World in 6 Glasses</li>
+                <li>Engines That Move Markets</li>
+                <li>Chip War</li>
+                <li>How Asia Works</li>
+                <li>Factfulness</li>
+                <li>What’s Our Problem? A Self-Help Book for Societies</li>
+            </ul>
+
+            <div class="section-title"> 🌞 Personal Philosophy</div>
+            <ul>
+                <li>The Surrender Experiment</li>
+                <li>The Prophet</li>
+                <li>The Seven Spiritual Laws of Success</li>
+                <li>The Parent’s Tao Te Ching</li>
+                <li>Unreasonable Hospitality</li>
+                <li>Power of Now</li>
+                <li>The Choice: Embrace The Possible</li>
+                <li>Man’s Search for Meaning</li>
+            </ul>
+
+            <div class="section-title">🦋 Memoirs/Stories</div>
+            <ul>
+                <li>Shoe Dog</li>
+                <li>Founders</li>
+                <li>When Breath Becomes Air</li>
+                <li>Top 5 Regrets of the Dying</li>
+                <li>The Code Breaker</li>
+                <li>The Sun Does Shine</li>
+                <li>Why Fish Don’t Exist</li>
+                <li>Educated</li>
+            </ul>
+
+            <div class="section-title">🏔️Psychology</div>
+            <ul>
+                <li>Getting to Yes</li>
+                <li>Psychology of Money</li>
+                <li>Skin in the Game</li>
+            </ul>
+
+            <div class="section-title">📍 Business</div>
+            <ul>
+                <li>High Output Management</li>
+                <li>Lean Startup</li>
+                <li>Hard Thing About Hard Things</li>
+                <li>Principles</li>
+                <li>Zero to One</li>
+                <li>Blue Ocean Strategy</li>
+            </ul>
+
+            <div class="section-title">🦢 Fun and/or Beautiful</div>
+            <ul>
+                <li>Poisonwood Bible</li>
+                <li>Demon Copperhead</li>
+                <li>Pachinko</li>
+                <li>The Overstory</li>
+                <li>1984</li>
+                <li>The Day the World Came to Town</li>
+                <li>The Alchemist</li>
+                <li>Secret Daughter</li>
+                <li>American Dirt</li>
+                <li>On Earth We’re Briefly Gorgeous</li>
+                <li>The Bite of Mango</li>
+            </ul>
+
+            <div class="section-title">🎨Children’s</div>
+            <ul>
+                <li>The Little Prince</li>
+                <li>The Land of Stories</li>
+                <li>Love You Forever</li>
+                <li>Edward Gordon Craig’s Book of Penny Toys</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Isabella Grandic.</p>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeNav = document.getElementById('closeNav');
+
+        navToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        closeNav.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

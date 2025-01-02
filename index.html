@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella Grandic</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #325fdb;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .emoji-group {
+            font-size: 1rem;
+            text-align: left;
+            margin-left: 0;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+
+        .desktop-nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            text-align: right;
+        }
+
+        .desktop-nav a {
+            font-size: 1rem;
+            color: black;
+            margin-bottom: 0.5rem;
+        }
+
+        .desktop-nav a:hover {
+            background-color: #325fdb;
+            color: white;
+            padding: 0.25rem;
+            border-radius: 5px;
+        }
+
+        .desktop-nav h2 {
+            margin-bottom: 1rem;
+        }
+
+        .desktop-nav .socials a {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: white;
+            width: 250px;
+            height: 100%;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav h2 {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .mobile-nav a {
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .close-nav {
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .fixed-links {
+            display: none;
+        }
+
+        .fixed-links a {
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .emoji-group {
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .fixed-links {
+                display: flex;
+                justify-content: flex-start;
+                width: 100%;
+                padding-left: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .fixed-links a {
+                font-size: 1rem;
+                color: black;
+                margin-right: 1rem;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .section-title {
+                margin-top: 1.5rem;
+            }
+
+            .bio-list li {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .fixed-links {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="fixed-links">
+            <a href="index.html">About</a>
+            <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span>&#9786;</span>
+        </div>
+
+        <nav class="desktop-nav">
+            <h2>WAYFINDING:</h2>
+            <a href="index.html">About</a>
+            <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+            <a href="reading.html">Reading</a>
+            <a href="world.html">World</a>
+            <a href="feed-everyone.html">Feed Everyone</a>
+
+            <div class="socials">
+                <h2>LINKS:</h2>
+                <a href="https://isabellagrandic.substack.com/" target="_blank">Substack</a>
+                <a href="https://twitter.com/izzygrandic" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/in/isabellagrandic/" target="_blank">LinkedIn</a>
+                <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank">Goodreads</a>
+                <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Food Reviews</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <span class="close-nav" id="closeNav">&times;</span>
+        <h2>WAYFINDING:</h2>
+        <a href="index.html">About</a>
+        <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+        <a href="reading.html">Reading</a>
+        <a href="world.html">World</a>
+        <a href="feed-everyone.html">Feed Everyone</a>
+
+        <h2>LINKS:</h2>
+        <a href="https://isabellagrandic.substack.com/" target="_blank">Substack</a>
+        <a href="https://twitter.com/izzygrandic" target="_blank">Twitter</a>
+        <a href="https://www.linkedin.com/in/isabellagrandic/" target="_blank">LinkedIn</a>
+        <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank">Goodreads</a>
+        <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Food Reviews</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <h1>Isabella Grandic</h1>
+            <div class="emoji-group">🌏☕️💌🌱✨🌍</div>
+
+            <div class="section-title">About:</div>
+            <ul class="bio-list">
+                <li>Industrials investment banking analyst @ <a href="https://www.santandercib.com/" target="_blank" style="color:#325fdb">Santander CIB</a>. Captivated by the unseen influence of chemical and manufacturing industries.</li>
+                <li>Graduated from the University of North Carolina with a major in Chemistry. My favourite courses were Organic Chemistry, World Politics in R, Electromagnetism, and Food & Wine in France.</li>
+                <li>I am fascinated by global logistics. I have done projects/internships with <a href="https://www.gac.com/thailand" target="_blank" style="color:#325fdb">GAC Thailand</a>, <a href="https://maerskoffshorewind.com/" target="_blank" style="color:#325fdb">Maersk Offshore Wind</a>, and <a href="https://www.madiro.org/" target="_blank" style="color:#325fdb">Madiro</a> exploring import-export inefficiencies, industrial ports, and last-mile medical supply chains, respectively.</li>
+                <li>I write a quarterly reflection on <a href="https://substack.com/@isabellagrandic" target="_blank" style="color:#325fdb">Substack</a>. Some favourites have been on <a href="https://substack.com/@isabellagrandic/p-146462224" target="_blank" style="color:#325fdb">Love</a>, <a href="https://substack.com/@isabellagrandic/p-144677328" target="_blank" style="color:#325fdb">Wandering</a>, <a href="https://substack.com/@isabellagrandic/p-153319951" target="_blank" style="color:#325fdb">Graduating</a>, <a href="https://isabellagrandic.medium.com/the-wetter-the-better-35815f899a66" target="_blank" style="color:#325fdb">Hiking</a>, <a href="https://substack.com/@isabellagrandic/p-74630403" target="_blank" style="color:#325fdb">Doubt</a>, and <a href="https://medium.com/@isabellagrandic/if-i-ran-the-world-health-organization-d41179585eed" target="_blank" style="color:#325fdb">Bureaucracy</a>.</li>
+                <li>Favourite books: <em>The Rational Optimist, Engines that Move Markets, Sapiens, The Parent's Guide to the Tao Te Ching, Unreasonable Hospitality, The Prophet, Le Petit Prince, Factfulness, Ishmael, and The Surrender Experiment.</em></li>
+            </ul>
+
+            <div class="section-title">Interests:</div>
+            <ul class="bio-list">
+                <li><strong>Raising children and education</strong>, especially Lazlo Polgar’s thesis, <em>Raise a Genius!</em>, and strategies for harnessing human potential.</li>
+                <li><strong>Designing motherhood</strong> (<a href="https://mitpress.mit.edu/9780262044899/designing-motherhood/" target="_blank" style="color:#325fdb">inspo</a>)—the medical, institutional, and communal aspects.</li>
+                <li><strong>Reinventing Societal Infrastructure</strong> (h/t <a href="https://www.khoslaventures.com/reinventing-societal-infrastructure-with-technology/" target="_blank" style="color:#325fdb">Vinod Khosla</a>).
+                </li>
+                <li><strong>Hosting</strong>—making people feel welcomed, warm, and at home. ❤</li>
+                <li><strong>Adventures</strong>—tuk-tuk-ing across Sri Lanka, volunteering in rural Burundi, backpacking Thailand/Vietnam, and especially exploring underestimated places.</li>
+                <li><strong>Journaling, meditation, yoga</strong>, and expanding my internal capacity for love and positivity.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Isabella Grandic.</p>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeNav = document.getElementById('closeNav');
+
+        navToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        closeNav.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

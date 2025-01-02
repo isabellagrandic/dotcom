@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #325fdb;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #325fdb;
+        }
+
+        h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.rem;
+            font-weight: bold;
+            margin: 2rem 0 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-section {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            font-size: 1.0rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #999;
+            margin-top: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+
+        .desktop-nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            right: 2rem;
+            top: 2rem;
+            text-align: right;
+        }
+
+        .desktop-nav a {
+            font-size: 1rem;
+            color: black;
+            margin-bottom: 0.5rem;
+        }
+
+        .desktop-nav a:hover {
+            background-color: #325fdb;
+            color: white;
+            padding: 0.25rem;
+            border-radius: 5px;
+        }
+
+        .desktop-nav h2 {
+            margin-bottom: 1rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: white;
+            width: 250px;
+            height: 100%;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav h2 {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .mobile-nav a {
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: black;
+        }
+
+        .mobile-nav a:hover {
+           text-decoration: underline;
+            color: #325fdb;
+        }
+
+        .close-nav {
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .emoji-group {
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .fixed-links {
+                display: flex;
+                justify-content: flex-start;
+                width: 100%;
+                padding-left: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .fixed-links a {
+                font-size: 1rem;
+                color: black;
+                margin-right: 1rem;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .section-title {
+                margin-top: 1.5rem;
+            }
+
+            .bio-list li {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .fixed-links {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        .image-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .image-section img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .image-section .caption {
+            font-size: 0.9rem;
+            color: #666;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .blogs-section a {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #325fdb;
+            font-size: 1.0rem;
+        }
+
+        .blogs-section a:hover {
+            color: #003d99;
+        }
+
+        .acknowledgments-section p {
+            margin-bottom: 1rem;
+            font-size: 1.0rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        .acknowledgments-section p:last-child {
+            border-bottom: none;
+        }
+
+        .section-title span {
+            font-size: 1.5rem;
+        }
+
+        .fixed-links a {
+            font-size: 1rem;
+            text-align: left;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="fixed-links">
+            <a href="index.html">About</a>
+            <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span>&#9786;</span>
+        </div>
+
+        <nav class="desktop-nav">
+            <h2>WAYFINDING:</h2>
+            <a href="index.html">About</a>
+            <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+            <a href="reading.html">Reading</a>
+            <a href="world.html">World</a>
+            <a href="feed-everyone.html">Feed Everyone</a>
+            <h2>LINKS:</h2>
+                <a href="https://isabellagrandic.substack.com/" target="_blank">Substack</a>
+                <a href="https://twitter.com/izzygrandic" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/in/isabellagrandic/" target="_blank">LinkedIn</a>
+                <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank">Goodreads</a>
+                <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Food Reviews</a>
+        </nav>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <span class="close-nav" id="closeNav">&times;</span>
+        <h2>WAYFINDING:</h2>
+        <a href="index.html">About</a>
+        <a href="https://isabellagrandic.substack.com/" target="_blank">Writing</a>
+        <a href="reading.html">Reading</a>
+        <a href="world.html">World</a>
+        <a href="feed-everyone.html">Feed Everyone</a>
+
+        <h2>LINKS:</h2>
+        <a href="https://isabellagrandic.substack.com/" target="_blank">Substack</a>
+        <a href="https://twitter.com/izzygrandic" target="_blank">Twitter</a>
+        <a href="https://www.linkedin.com/in/isabellagrandic/" target="_blank">LinkedIn</a>
+        <a href="https://www.goodreads.com/user/show/97849607-isabella-grandic" target="_blank">Goodreads</a>
+        <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Food Reviews</a>
+    </div>
+
+
+    <main>
+        <div class="content-section">
+            <h1>World</h1>
+
+            <p>Adventures and exploration are my passion. Whether wandering through bustling markets or hiking to remote mountain peaks, I find joy in discovering new places and meeting new people. Travel helps me understand the world and inspires me to keep an open mind and heart. I hope to continue for many years, documenting the enriching moments and grand recommendations.</p>
+
+            <div class="section-title"><span>🔗</span> Links</div>
+            <ul>
+                <li>Read some of my <a href="https://maps.app.goo.gl/1cFCfL4hwxNcQUB37?g_st=ic" target="_blank">Google Reviews</a></li>
+                <li>A work-in-progress <a href="https://docs.google.com/document/d/1-NRLnnwFo9NSd6TDTwemxoqPEF-TsqVNBAXtd2-B1qc/edit?usp=sharing" target="_blank">Asia Recommendations Doc</a></li>
+                <li>Some photos on my <a href="https://www.instagram.com/isabellagrandic/" target="_blank">Instagram</a></li>
+            </ul>
+
+            <div class="section-title"><span>📚</span> Blogs</div>
+            <div class="blogs-section">
+                <a href="https://isabellagrandic.substack.com/p/wild-roads-quiet-whispers" target="_blank">Wild Roads, Quiet Whispers</a>
+                <a href="https://isabellagrandic.substack.com/p/what-if-selflessness-was-as-involuntary" target="_blank">What if selflessness was as involuntary as breathing?</a>
+                <a href="https://isabellagrandic.substack.com/p/my-first-time-in-asia-7-countries?utm_source=profile&utm_medium=reader2" target="_blank">My First Time in Asia</a>
+                <a href="https://isabellagrandic.medium.com/bujumbura-for-first-time-visitors-3bb23051e26c" target="_blank">Bujumbura for First-Time Visitors</a>
+                <a href="https://isabellagrandic.medium.com/2030s-biotech-according-to-future-nobel-laureates-224d729ed3e9" target="_blank">2030 Biotech According to Future Nobel Laureates</a>
+            </div>
+
+            <div class="image-section">
+                <img src="image1.JPG" alt="Koh Phangan">
+                <div class="caption">2023 travels in Koh Phangan, Thailand</div>
+            </div>
+
+            <div class="section-title"><span>💌</span> Acknowledgments</div>
+            <div class="acknowledgments-section">
+                <p>Spending my summer of 2019 with the Van Eelen Family in Amsterdam supporting a cultured meat conference. Met my friend Mackenzie Dion out there who is the reason I knew of and applied for the Morehead-Cain scholarship at UNC. I love you Ira and Mackenzie!</p>
+                <p>Several trips to Las Vegas with special love to the Hurst and Snow families. Vegas is a special place, particularly beyond the strip (but the New York, New York rollercoaster is very cool).</p>
+                <p>Thank you dearly to the Namuli-Blazevic family for the hospitality in Uganda. Kampala and Mukono were incredibly versatile and formative experiences; I'm grateful for the support when I needed it most!</p>
+                <p>Nizigiyimana family for their love and support in Burundi. Thank you for sharing your country and your missions with me.</p>
+                <p>Grateful for Singapore and Bangkok and all the wonderful people I met carving a little home in these massive cities. I am so honoured I get to love these places so deeply in this life.</p>
+                <p>The extended Grandic, Gvozdic, families and friends in Bosnia, Serbia, and Croatia. I would not be who I am without the Slavic hospitality and character I grew up around.</p>
+                <p>California for forever captivating my dreams ❤️.</p>
+                <p>Toronto for raising me and always being home.</p>
+            </div>
+
+            <div class="image-section">
+                <img src="image2.JPG" alt="Motorcycle in Laos" style="max-width: 80%;">
+                <div class="caption">Another motorcycle photo, this time from Vang Vieng, Laos!!</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Isabella Grandic.</p>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeNav = document.getElementById('closeNav');
+
+        navToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        closeNav.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
